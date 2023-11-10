@@ -1,0 +1,30 @@
+/* File: CourseList.css */
+.course-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 20px;
+  }
+  
+  .course-box {
+    width: 200px;
+    height: 200px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .course-title {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .course-description {
+    font-size: 14px;
+    text-align: center;
+  }
+  
