@@ -1,0 +1,92 @@
+/* ProfileSelector.css */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f3f4; /* Chrome's background color */
+  }
+  
+  .profile-selector {
+    text-align: center;
+    color: #202124; /* Chrome's primary text color */
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+  
+  .profile-subtitle {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 48px; /* Increased space between subtitle and tiles */
+    color: #5f6368; /* Chrome's secondary text color */
+    line-height: 1.5;
+  }
+  
+  .profiles {
+    display: flex;
+    justify-content: center;
+    gap: 48px; /* Increased space between profiles */
+    flex-wrap: wrap;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* This will center the icon vertically */
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+    width: 224px; /* Double the previous width */
+    height: 224px; /* Double the previous height */
+    /* ... */
+  }
+  
+  .profile-icon {
+    width: 128px; /* Or any size you prefer */
+    height: 128px; /* Or any size you prefer */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px; /* Adjust if needed */
+    color: white; /* Adjust if needed */
+    margin: 0 auto; /* This will center the icon horizontally */
+    margin-bottom: 20px;
+  }
+  
+ 
+  
+  .profile:hover {
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15);
+  }
+  
+ 
+  
+  .profile-name {
+    font-size: 16px;
+    font-family: "Lucida Sans";
+    color: #202124;
+  }
+  
+  .add-profile .profile-icon {
+    border: 2px dashed #dadce0; /* Chrome's 'Add' icon border color */
+    background-color: transparent; /* Transparent background */
+    color: black; /* Black text color for the '+' symbol */
+    font-size: 32px; /* Size of the '+' symbol */
+    width: 64px; /* Width of the circle */
+    height: 64px; /* Height of the circle */
+    border-radius: 50%; /* Circle shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  

@@ -5,6 +5,7 @@ import DashboardPage from './components/DashboardPage'; // Import your Dashboard
 import Register from './components/Register'; // Import your Register component
 import Login from './components/Login'; // Import your Login component
 import CoursePage from './components/CoursePage';
+import ProfileSelector from './components/ProfileSelector';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/course" component={CoursePage} />
+        <Route path="/children" component={ProfileSelector} />
         {/* Add other routes as needed */}
       </Switch>
     </Router>
