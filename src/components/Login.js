@@ -22,7 +22,9 @@ function Login({ setIsLoggedIn }) {
       .then((response) => {
         // Check if the login was successful (customize this logic)
         if (response.data.status == true) {
-          //setIsLoggedIn(true);
+          // setIsLoggedIn(true);
+          localStorage.setItem('userId', response.data.userId);
+          localStorage.setItem('userEmail', email);
           history.push('/children');
            // Set isLoggedIn to true for a successful login
         } else {

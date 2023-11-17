@@ -1,5 +1,6 @@
 // File: src/components/Register.js
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './Register.css';
 
@@ -10,9 +11,11 @@ function Register({ setIsRegistered }) {
   const [phone, setPhone] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [role, setRole] = useState('');
+  // const [role, setRole] = useState('');
+  const history = useHistory();
 
-  const handleRegister = () => {
+  const handleRegister = (e) => {
+    e.preventDefault();
     const userData = {
       userName,
       password,
@@ -20,7 +23,7 @@ function Register({ setIsRegistered }) {
       phone,
       firstName,
       lastName,
-      role,
+      // role,
     };
 
     axios
@@ -30,8 +33,10 @@ function Register({ setIsRegistered }) {
         },
       })
       .then((response) => {
-        if (response.data.success) {
-          setIsRegistered(true);
+        console.log(response)
+        if (response.status === 201) {
+          // setIsRegistered(true);
+          history.push('/login');
         } else {
           console.log('Registration failed:', response.data.message);
         }
@@ -81,12 +86,6 @@ function Register({ setIsRegistered }) {
             placeholder="Last Name"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Role"
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
           />
           <button onClick={handleRegister}>Register</button>
         </form>

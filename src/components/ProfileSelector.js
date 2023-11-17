@@ -17,6 +17,7 @@ const getRandomColor = () => {
 
 const ProfileSelector = () => {
   // Map profiles to include a random color and the initial
+  console.log(localStorage.getItem('userId'));
   const history = useHistory(); // Create history object
 
   // Function to handle profile selection
@@ -30,7 +31,7 @@ const ProfileSelector = () => {
   }));
 
   return (
-    <div className="profile-selector">
+    <div className="profile-selector-container">
       <h1>Who's Profile You want to see?</h1>
       <div className="profile-subtitle">
       Select your child’s profile to tailor their learning journey with content just for them.
