@@ -1,11 +1,13 @@
 // File: src/components/Login.js
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios'; // Import Axios
 import './Login.css'; // Import your CSS file for Login
 
 function Login({ setIsLoggedIn }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const history = useHistory();
 
   const handleLogin = () => {
     // Define the data to send in the request as a JSON object
@@ -19,8 +21,10 @@ function Login({ setIsLoggedIn }) {
       .post('http://localhost:8080/api/users/login', data)
       .then((response) => {
         // Check if the login was successful (customize this logic)
-        if (response.data.success) {
-          setIsLoggedIn(true); // Set isLoggedIn to true for a successful login
+        if (response.data.status == true) {
+          //setIsLoggedIn(true);
+          history.push('/children');
+           // Set isLoggedIn to true for a successful login
         } else {
           // Handle failed login (e.g., show an error message)
           console.log('Login failed:', response.data.message);

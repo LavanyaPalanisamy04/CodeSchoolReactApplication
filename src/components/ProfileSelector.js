@@ -1,5 +1,6 @@
 // ProfileSelector.js
 import React from 'react';
+import { useHistory } from 'react-router-dom'; 
 import './ProfileSelector.css';
 
 const profiles = [
@@ -16,6 +17,12 @@ const getRandomColor = () => {
 
 const ProfileSelector = () => {
   // Map profiles to include a random color and the initial
+  const history = useHistory(); // Create history object
+
+  // Function to handle profile selection
+  const selectProfile = () => {
+    history.push('/'); // Redirect to the home page
+  };
   const profilesWithColor = profiles.map(profile => ({
     ...profile,
     color: getRandomColor(),
@@ -30,7 +37,7 @@ const ProfileSelector = () => {
       </div>
       <div className="profiles">
         {profilesWithColor.map(profile => (
-          <div key={profile.id} className="profile">
+          <div key={profile.id} className="profile" onClick={selectProfile}>
             <div className="profile-icon" style={{ backgroundColor: profile.color }}>
               {profile.initial}
             </div>
