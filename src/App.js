@@ -19,7 +19,7 @@ function App() {
         <Route path="/course" component={CoursePage} />
         <Route path="/children" component={ProfileSelector} />
         <Route path="/addChild" component={ChildForm} />
-        
+        <Route path="/course/:courseId/enroll" component={CoursePage} />
       </Switch>
     </Router>
   );

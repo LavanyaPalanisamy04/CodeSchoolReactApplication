@@ -1,30 +1,73 @@
 /* File: CourseList.css */
+.course-list-container {
+  margin: 20px;
+}
+
+.course-list-title {
+  margin-bottom: 15px;
+}
+
 .course-list {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin: 20px;
-  }
-  
-  .course-box {
-    width: 200px;
-    height: 200px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    margin: 10px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .course-title {
-    font-size: 18px;
-    margin: 10px 0;
-  }
-  
-  .course-description {
-    font-size: 14px;
-    text-align: center;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust the gap as per your design */
+}
+
+.course-card {
+  width: 300px; /* Adjust the width as per your design */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+.course-image-container {
+  width: 100%;
+  height: 150px; /* Adjust the height as per your design */
+  background-color: #f0f0f0;
+  overflow: hidden;
+}
+
+.course-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.course-info {
+  padding: 15px;
+}
+
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.course-provider {
+  font-weight: 600;
+}
+
+.course-rating {
+  background-color: #4caf50;
+  color: white;
+  padding: 3px 7px;
+  border-radius: 5px;
+  font-size: 0.8em;
+}
+
+.course-title {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+.course-description {
+  font-size: 0.9em;
+  color: #333;
+}

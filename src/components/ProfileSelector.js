@@ -4,36 +4,6 @@ import { useHistory } from 'react-router-dom';
 import './ProfileSelector.css';
 import axios from 'axios';
 
-// const profiles = [
-//   { id: 'person1', name: 'Person 1' },
-//   { id: 'Person 2', name: 'Person 2' },
-// ];
-
-// const [profiles, setProfiles] = useState([]);
-//   const history = useHistory();
-
-//   useEffect(() => {
-//     // Fetch profiles from the backend API
-//     const userId = localStorage.getItem('userId');
-//     const fetchProfiles = async () => {
-//       try {
-//         const response = await axios.get('http://localhost:8080/api/users/getChildren/${userId}');
-//         setProfiles(response.data);
-//       } catch (error) {
-//         console.error('Error fetching profiles:', error);
-//       }
-//     };
-
-//     fetchProfiles();
-//   }, []);
-
-// const getRandomColor = () => {
-//   // Generate a random pastel color
-//   const hue = Math.floor(Math.random() * 360);
-//   const pastelColor = `hsl(${hue}, 100%, 80%)`;
-//   return pastelColor;
-// };
-
 const ProfileSelector = () => {
   // Map profiles to include a random color and the initial
   console.log(localStorage.getItem('userId'));
@@ -43,15 +13,21 @@ const ProfileSelector = () => {
 
 
   const [profiles, setProfiles] = useState([]);
+  
+  // const [selectedProfileId, setSelectedProfileId] = useState(null);
+
 
   useEffect(() => {
     const userId = localStorage.getItem('userId');
+    console.log(userId);
 
     // Fetch profiles from the backend API
     const fetchProfiles = async () => {
       try {
         const response = await axios.get(`http://localhost:8080/api/users/getChildren/${userId}`);
+        console.log("response DATA " ,response.data);
         setProfiles(response.data);
+        console.log(response);
       } catch (error) {
         console.error('Error fetching profiles:', error);
       }
@@ -73,17 +49,21 @@ const ProfileSelector = () => {
   /******************api call ************ */
 
   // Function to handle profile selection
-  const selectProfile = () => {
-    history.push('/'); // Redirect to the home page
+  const selectProfile = (profile) => {
+    history.push({
+      pathname: '/dashboard',
+      state: { profile } // Pass the profile object in the state
+    });
   };
 
   const handleclick = () => {
     history.push('/addchild')
   };
+  console.log("profiles: ",profiles);
   const profilesWithColor = profiles.map(profile => ({
     ...profile,
     color: getRandomColor(),
-    initial: profile.name.charAt(0)
+    initial: profile.user.firstName.charAt(0).toUpperCase()
   }));
 
   return (
@@ -93,14 +73,14 @@ const ProfileSelector = () => {
       Select your child’s profile to tailor their learning journey with content just for them.
       </div>
       <div className="profiles">
-        {profilesWithColor.map(profile => (
-          <div key={profile.id} className="profile" onClick={selectProfile}>
-            <div className="profile-icon" style={{ backgroundColor: profile.color }}>
-              {profile.initial}
-            </div>
-            <div className="profile-name">{profile.name}</div>
+      {profilesWithColor.map(profile => (
+        <div key={profile.id} className="profile" onClick={() => selectProfile(profile)}>
+          <div className="profile-icon" style={{ backgroundColor: profile.color }}>
+            {profile.initial}
           </div>
-        ))}
+          <div className="profile-name">{profile.user.firstName}</div>
+        </div>
+      ))}
         <div className="profile add-profile">
           <div className="profile-icon" onClick={handleclick}>+</div>
           <div className="profile-name">Add</div>
