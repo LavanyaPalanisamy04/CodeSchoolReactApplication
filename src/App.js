@@ -6,6 +6,7 @@ import Register from './components/Register'; // Import your Register component
 import Login from './components/Login'; // Import your Login component
 import CoursePage from './components/CoursePage';
 import ProfileSelector from './components/ProfileSelector';
+import ChildForm from './components/ChildForm';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/course" component={CoursePage} />
         <Route path="/children" component={ProfileSelector} />
-        {/* Add other routes as needed */}
+        <Route path="/addChild" component={ChildForm} />
+        
       </Switch>
     </Router>
   );
